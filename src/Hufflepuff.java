@@ -1,4 +1,4 @@
-public class Hufflepuff extends Hogwarts{
+public class Hufflepuff extends Hogwarts {
     private int hardWork;
     private int loyalty;
     private int honesty;
@@ -32,6 +32,20 @@ public class Hufflepuff extends Hogwarts{
 
     public void setHonesty(int honesty) {
         this.honesty = honesty;
+    }
+
+    protected int getPower() {
+        return this.hardWork + this.loyalty + this.honesty;
+    }
+
+    public void printPowerDifference(Hufflepuff student) {
+        if (this.getPower() > student.getPower()) {
+            System.out.printf("%s лучший Пуффендуец, чем %s", this.getName(), student.getName());
+        } else if (this.getPower() < student.getPower()) {
+            System.out.printf("%s лучший Пуффендуец, чем %s", student.getName(), this.getName());
+        } else {
+            System.out.printf("%s такой же Пуффендуец, как и %s", this.getName(), student.getName());
+        }
     }
 
     @Override

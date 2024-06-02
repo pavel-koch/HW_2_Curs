@@ -1,4 +1,4 @@
-public class Ravenclaw extends Hogwarts{
+public class Ravenclaw extends Hogwarts {
     private int mind;
     private int wisdom;
     private int wit;
@@ -45,13 +45,27 @@ public class Ravenclaw extends Hogwarts{
         this.creativity = creativity;
     }
 
+    protected int getPower() {
+        return this.mind + this.wisdom + this.wit + this.creativity;
+    }
+
+    public void printPowerDifference(Ravenclaw student) {
+        if (this.getPower() > student.getPower()) {
+            System.out.printf("%s лучший Когтевранец, чем %s", this.getName(), student.getName());
+        } else if (this.getPower() < student.getPower()) {
+            System.out.printf("%s лучший Когтевранец, чем %s", student.getName(), this.getName());
+        } else {
+            System.out.printf("%s такой же Когтевранец, как и %s", this.getName(), student.getName());
+        }
+    }
+
     @Override
     public String toString() {
         return super.toString() +
                 "\nФакультет: Когтевран" +
                 "\nУм: " + this.mind +
                 "\nМудрость: " + this.wisdom +
-                "\nОстроумность: " + this.wit+
+                "\nОстроумность: " + this.wit +
                 "\nТворчесво: " + this.creativity;
     }
 }
